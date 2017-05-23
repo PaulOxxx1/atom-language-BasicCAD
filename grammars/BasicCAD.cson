@@ -3,8 +3,51 @@
 'fileTypes': ['d3m', 'd3i','func']
 
 'patterns': [
+	#Constants
+		#numeric
 		{
 		    'match': '\\b(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))\\b'
-		    'name': 'constant.numeric.mylanguage'
+		    'name': 'constant.numeric.BasicCAD'
+		}
+		#string
+		{
+				'begin': '\"'
+				'beginCaptures':
+						'0':
+								'name': 'punctuation.definition.string.begin.BasicCAD'
+				'end' : '\"|\\n'
+				'endCaptures':
+						'0':
+								'name': 'punctuation.definition.string.begin.BasicCAD'
+				'name': 'string.quoted.double.BasicCAD'
+		}
+	
+	#Comments
+		{
+				'begin': '\''
+				'beginCaptures':
+						'0':
+								'name': 'punctuation.definition.comment.begin.BasicCAD'
+				'end': '\\n'
+				'endCaptures':
+						'0':
+								'name': 'punctuation.definition.comment.end.BasicCAD'
+				'name': 'comment.BasicCAD'
+		}
+		
+		#Subroutines
+		{
+			'match': '(?i)gosub\\s([a-z][a-z0-9]*)'
+			'captures':
+						'1':
+								'name': 'support.function.name.BasicCAD'
+			'name': 'support.function.BasicCAD'
+		}
+		{
+			'match': '(?i)([a-z][a-z0-9]*)\\s?:'
+			'captures':
+						'1':
+								'name': 'support.function.name.BasicCAD'
+			'name': 'support.function.BasicCAD'
 		}
 ]
