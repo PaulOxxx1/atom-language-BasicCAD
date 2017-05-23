@@ -1,0 +1,50 @@
+# add snippetss
+'.source.asp.vb.net':
+  'if-else':
+    'prefix': 'ifelse'
+    'body': """
+      IF ${1:condition} THEN
+        $2
+      ELSE
+        $3
+      END IF$4
+      """
+  'if':
+    'prefix': 'if'
+    'body': """
+      IF ${1:condition} THEN
+        $2
+      END IF$3
+      """
+  'for':
+    'prefix': 'for'
+    'body': """
+      FOR ${1:variable} = ${2:start} TO ${3:end}
+        $4
+      NEXT $1$5
+      """
+
+  'message':
+    'prefix': 'message'
+    'body': 'MESSAGE "$1"$2'
+  'input':
+    'prefix': 'input'
+    'body': 'INPUT "$1", $2'
+
+  'subroutine-body':
+    'prefix': 'sub'
+    'body': """
+      '/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/\\\\/
+      '---${1:description}
+      ${2:name}:
+        ${3:code}
+      RETURN
+      """
+
+  'command':
+    'prefix': '>'
+    'body': """
+      >${1:command}
+        {$2
+        }$3
+      """

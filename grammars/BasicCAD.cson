@@ -1,0 +1,10 @@
+'scopeName': 'source.BasicCAD'
+'name': 'BasicCAD'
+'fileTypes': ['d3m', 'd3i','func']
+
+'patterns': [
+		{
+		    'match': '\\b(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))\\b'
+		    'name': 'constant.numeric.mylanguage'
+		}
+]

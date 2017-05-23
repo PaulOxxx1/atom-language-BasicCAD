@@ -1,0 +1,17 @@
+{
+  "name": "language-BasicCAD",
+  "version": "0.0.0",
+  "description": "BasicCAD language support in Atom",
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PaulOxxx1/atom-language-BasicCAD.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PaulOxxx1/atom-language-BasicCAD/issues"
+  },
+  "license": "MIT"
+}
