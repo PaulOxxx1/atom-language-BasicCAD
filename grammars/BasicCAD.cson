@@ -35,19 +35,38 @@
 				'name': 'comment.BasicCAD'
 		}
 		
-		#Subroutines
+	#Subroutines
 		{
 			'match': '(?i)gosub\\s([a-z][a-z0-9]*)'
 			'captures':
 						'1':
-								'name': 'support.function.name.BasicCAD'
+								'name': 'entity.name.function.BasicCAD'
 			'name': 'support.function.BasicCAD'
 		}
 		{
 			'match': '(?i)([a-z][a-z0-9]*)\\s?:'
 			'captures':
 						'1':
-								'name': 'support.function.name.BasicCAD'
+								'name': 'entity.name.function.BasicCAD'
 			'name': 'support.function.BasicCAD'
 		}
+		
+	#Functions
+		{
+				'begin': '(?i)SYS\\$?\\s?\\('
+				'beginCaptures':
+						'0':
+								'name': 'storage.type.function.BasicCAD'
+				'end': '\\n|\\)'
+				'endCaptures':
+						'0':
+								'name': 'storage.type.function.BasicCAD'
+		}
+		
+	#Keywords
+		#Operators
+	  {
+	    match: "!|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|/=|%=|\\+=|\\-=|&=|\\^=|\\b(New|#Region|#End Region|#Const|#If|#ElseIf|#End If)\\b"
+	    name: "keyword.operator.js"
+	  }
 ]
