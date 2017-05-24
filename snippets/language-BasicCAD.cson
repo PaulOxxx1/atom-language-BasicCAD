@@ -1,5 +1,5 @@
-# add snippetss
-'.source.asp.vb.net':
+'.source.BasicCAD':
+
   'if-else':
     'prefix': 'ifelse'
     'body': """
@@ -9,6 +9,7 @@
         $3
       END IF$4
       """
+
   'if':
     'prefix': 'if'
     'body': """
@@ -16,6 +17,7 @@
         $2
       END IF$3
       """
+
   'for':
     'prefix': 'for'
     'body': """
@@ -27,9 +29,14 @@
   'message':
     'prefix': 'message'
     'body': 'MESSAGE "$1"$2'
+
   'input':
     'prefix': 'input'
     'body': 'INPUT "$1", $2'
+
+  'gosub':
+    'prefix': 'gosub'
+    'body': 'GOSUB $1'
 
   'subroutine-body':
     'prefix': 'sub'
@@ -42,7 +49,7 @@
       """
 
   'command':
-    'prefix': '>'
+    'prefix': 'command'
     'body': """
       >${1:command}
         {$2

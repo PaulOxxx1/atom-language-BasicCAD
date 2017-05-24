@@ -21,7 +21,7 @@
 								'name': 'punctuation.definition.string.begin.BasicCAD'
 				name: 'string.quoted.double.BasicCAD'
 		}
-	
+
 	#Comments
 		{
 				begin: '\''
@@ -34,7 +34,7 @@
 								'name': 'punctuation.definition.comment.end.BasicCAD'
 				name: 'comment.BasicCAD'
 		}
-		
+
 	#Subroutines / Gotos
 		{
 			match: '(?i)\\b(gosub|goto)\\s([a-z][a-z0-9]*)'
@@ -50,7 +50,7 @@
 								'name': 'entity.name.tag.BasicCAD'
 			name: 'entity.tag.BasicCAD'
 		}
-		
+
 	#Functions
 	  {
 	    begin: "(?i)\\b(sys\\$?|sysex|abs|acos|angle|asin|atan|cos|exp|hcos|hsin|htan|int|ln|log|odd|round|sgn|sin|sqr|sqrt|tan|trunc|area|eof|err|layer|length|chr\\$|mks\\$|exist|asc|cvs|err\\$|instr|len|val|left\\$|mid\\$|right\\$|string\\$)\\s?\\("
@@ -63,7 +63,7 @@
 							name: 'support.function.BasicCAD'
 	    patterns: [
 	      {
-	        include: '$base'
+	        include: '#brackets_round'
 	      }
     	]
 	  }
@@ -75,7 +75,7 @@
 				match: '(?i)>\\w*\\b'
 				name: 'support.function.BasicCAD'
 		}
-		
+
 	#Keywords
 		#operators
 	  {
@@ -91,11 +91,18 @@
 	    match: "(?i:\\b(Mod|And|Not|Or)\\b)"
 	    name: "keyword.control.asp"
 	  }
-		
+
 	#Sections
 		#round brackets
 	  {
-	    include: "#round-brackets"
+	    begin: "\\("
+	    beginCaptures:
+	      "0":
+	        name: "punctuation.section.round-brackets.begin.asp"
+	    end: "\\)"
+	    endCaptures:
+	      "0":
+	        name: "punctuation.section.round-brackets.end.asp"
 	  }
 		#square brackets
 		{
@@ -111,20 +118,14 @@
 		}
 ]
 
-repository:
-  "round-brackets":
-    begin: "\\("
-    beginCaptures:
-      "0":
-        name: "punctuation.section.round-brackets.begin.asp"
-    end: "\\)"
-    endCaptures:
-      "0":
-        name: "punctuation.section.round-brackets.end.asp"
-    name: "meta.round-brackets"
-    patterns: [
-      {
-        include: "source.BasicCAD"
-      }
-    ]
-scopeName: "source.BasicCAD"
+repository: {
+   brackets_round: {
+	    begin: "\\("
+			end: "\\)"
+	    patterns: [
+	      {
+	        include: '#brackets_round'
+	      }
+   		]
+	  }
+}
