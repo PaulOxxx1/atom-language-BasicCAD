@@ -6,67 +6,120 @@
 	#Constants
 		#numeric
 		{
-		    'match': '\\b(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))\\b'
-		    'name': 'constant.numeric.BasicCAD'
+		    match: '\\b(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))\\b'
+		    name: 'constant.numeric.BasicCAD'
 		}
 		#string
 		{
-				'begin': '\"'
-				'beginCaptures':
-						'0':
+				begin: '\"'
+				beginCaptures:
+						0:
 								'name': 'punctuation.definition.string.begin.BasicCAD'
-				'end' : '\"|\\n'
-				'endCaptures':
-						'0':
+				end : '\"|\\n'
+				endCaptures:
+						0:
 								'name': 'punctuation.definition.string.begin.BasicCAD'
-				'name': 'string.quoted.double.BasicCAD'
+				name: 'string.quoted.double.BasicCAD'
 		}
 	
 	#Comments
 		{
-				'begin': '\''
-				'beginCaptures':
-						'0':
+				begin: '\''
+				beginCaptures:
+						0:
 								'name': 'punctuation.definition.comment.begin.BasicCAD'
-				'end': '\\n'
-				'endCaptures':
-						'0':
+				end: '\\n'
+				endCaptures:
+						0:
 								'name': 'punctuation.definition.comment.end.BasicCAD'
-				'name': 'comment.BasicCAD'
+				name: 'comment.BasicCAD'
 		}
 		
-	#Subroutines
+	#Subroutines / Gotos
 		{
-			'match': '(?i)gosub\\s([a-z][a-z0-9]*)'
-			'captures':
-						'1':
-								'name': 'entity.name.function.BasicCAD'
-			'name': 'support.function.BasicCAD'
+			match: '(?i)\\b(gosub|goto)\\s([a-z][a-z0-9]*)'
+			captures:
+						2:
+								'name': 'entity.name.tag.BasicCAD'
+			name: "support.function.BasicCAD"
 		}
 		{
-			'match': '(?i)([a-z][a-z0-9]*)\\s?:'
-			'captures':
-						'1':
-								'name': 'entity.name.function.BasicCAD'
-			'name': 'support.function.BasicCAD'
+			match: '(?i)([a-z][a-z0-9]*)\\s?:'
+			captures:
+						1:
+								'name': 'entity.name.tag.BasicCAD'
+			name: 'entity.tag.BasicCAD'
 		}
 		
 	#Functions
+	  {
+	    begin: "(?i)\\b(sys\\$?|abs|acos|angle|asin|atan|cos|exp|hcos|hsin|htan|int|ln|log|odd|round|sgn|sin|sqr|sqrt|tan|trunc|area|eof|err|layer|length|chr\\$|mks\\$|exist|asc|cvs|err\\$|instr|len|val|left\\$|mid\\$|right\\$|string\\$)\\s?\\("
+			beginCaptures:
+					0:
+							name: 'support.function.BasicCAD'
+			end: "\\)"
+			endCaptures:
+					0:
+							name: 'support.function.BasicCAD'
+	  }
 		{
-				'begin': '(?i)SYS\\$?\\s?\\('
-				'beginCaptures':
-						'0':
-								'name': 'storage.type.function.BasicCAD'
-				'end': '\\n|\\)'
-				'endCaptures':
-						'0':
-								'name': 'storage.type.function.BasicCAD'
+				match: '(?i)\\b(AddProperty|GetProperty|SetProperty|GetPropertyIndex|CLS|ClearStorage|Chain|Update|Change|SetPoint|Cmdline|Call|Run|DeleteProperty|Print|Getselect|Run|Layer|Regen|PutAttr|Entity|GetAttr|PointVal|Color|Tab|WClose|Dim|Window|Open|Close|Include|On\\sError|Input|Precision|Format|Parse|Exist|Message|Anykey|Clear|Query)\\b'
+				name: 'support.function.BasicCAD'
+		}
+		{
+			match: '(?i)>\\w*\\b'
+			name: 'support.function.BasicCAD'
 		}
 		
 	#Keywords
-		#Operators
+		#operators
 	  {
-	    match: "!|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|/=|%=|\\+=|\\-=|&=|\\^=|\\b(New|#Region|#End Region|#Const|#If|#ElseIf|#End If)\\b"
-	    name: "keyword.operator.js"
+	    match: "!|%|&|\\*|\\-|\\+|=|<=|>=|<>|<|>"
+	    name: "keyword.operator.BasicCAD"
 	  }
+		#controls
+	  {
+	    match: "(?i:\\b(If|Then|Else|End\\s?If|While|For|To|Return|Do|Loop|Next|Exit Do|Exit For)\\b)"
+	    name: "keyword.control.BasicCAD"
+	  }
+	  {
+	    match: "(?i:\\b(Mod|And|Not|Or)\\b)"
+	    name: "keyword.control.asp"
+	  }
+		
+	#Sections
+		#round brackets
+	  {
+	    include: "#round-brackets"
+	  }
+		#square brackets
+		{
+			begin: '\\['
+			beginCaptures:
+				 	0:
+							name: 'punctuation.section.begin.BasicCAD'
+			end: '\\]'
+			endCaptures:
+					0:
+							name: 'punctuation.section.end.BasicCAD'
+			name:'meta.section'
+		}
 ]
+
+repository:
+  "round-brackets":
+    begin: "\\("
+    beginCaptures:
+      "0":
+        name: "punctuation.section.round-brackets.begin.asp"
+    end: "\\)"
+    endCaptures:
+      "0":
+        name: "punctuation.section.round-brackets.end.asp"
+    name: "meta.round-brackets"
+    patterns: [
+      {
+        include: "source.BasicCAD"
+      }
+    ]
+scopeName: "source.BasicCAD"
