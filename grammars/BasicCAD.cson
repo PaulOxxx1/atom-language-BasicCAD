@@ -61,11 +61,6 @@
 			endCaptures:
 					0:
 							name: 'support.function.BasicCAD'
-	    patterns: [
-	      {
-	        include: '#brackets_round'
-	      }
-    	]
 	  }
 		{
 				match: '(?i)\\b(Progress|Alias|AddProperty|GetProperty|SetProperty|GetPropertyIndex|CLS|ClearStorage|Chain|Update|Change|SetPoint|Cmdline|Call|Run|DeleteProperty|Print|Getselect|Run|Layer|Regen|PutAttr|Entity|GetAttr|PointVal|Color|Tab|WClose|Dim|Window|Open|Close|Include|On\\sError|Input|Precision|Format|Parse|Exist|Message|Anykey|Clear|Query)\\b'
@@ -117,15 +112,3 @@
 			name:'meta.section'
 		}
 ]
-
-repository: {
-   brackets_round: {
-	    begin: "\\("
-			end: "\\)"
-	    patterns: [
-	      {
-	        include: '#brackets_round'
-	      }
-   		]
-	  }
-}
