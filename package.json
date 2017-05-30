@@ -1,6 +1,6 @@
 {
   "name": "language-BasicCAD",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "BasicCAD language support in Atom",
   "engines": {
     "atom": "*"
