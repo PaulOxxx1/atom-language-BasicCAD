@@ -55,3 +55,15 @@
         {$2
         }$3
       """
+
+  'variable output 1':
+    'prefix': 'var1'
+    'body': 'MESSAGE "$1: ", $1'
+
+  'variable output 2':
+    'prefix': 'var2'
+    'body': 'MESSAGE "$1: ", $1, " $2: ", $2'
+
+  'variable output 3':
+    'prefix': 'var3'
+    'body': 'MESSAGE "$1: ", $1, " $2: ", $2, " $3: ", $3'
