@@ -1,9 +1,9 @@
 '.source.BasicCAD':
   'editor':
     'commentStart': '\''
-'.source.BasicCAD':
-  'editor':
-    'autoIndentOnPaste': false
+    'nonWordCharacters': '/\\()"\':,.;<>~!@#%^&*|+=[]{}`?-'
+    'showIndentGuide': true
+    'tabLength': '4'
     'increaseIndentPattern': '(?xi)
       ^\\s*
       (
