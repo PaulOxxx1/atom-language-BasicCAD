@@ -1,0 +1,25 @@
+'.source.BasicCAD':
+  'editor':
+    'commentStart': '\''
+'.source.BasicCAD':
+  'editor':
+    'autoIndentOnPaste': false
+    'increaseIndentPattern': '(?xi)
+      ^\\s*
+      (
+				\\b(if)\\b(?=.*?then)
+        |\\b(for)\\b(?=.*?to)
+        |\\b(else)\\b
+        |\\b(do)\\b
+        |[a-z]\\:\\b
+			)'
+    'decreaseIndentPattern': '(?xi)
+      ^\\s*
+      (
+        \\b(end\\sif|endif)\\b
+        |\\b(end)\\b
+        |\\b(return)\\b
+        |\\b(next)\\b
+        |\\b(else)\\b
+        |\\b(loop)\\b
+      )$'
