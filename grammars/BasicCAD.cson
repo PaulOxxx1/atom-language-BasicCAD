@@ -53,7 +53,7 @@
 
 	#Functions
 	  {
-	    begin: "(?i)\\b(sys\\$?|sysex|abs|acos|angle|asin|atan|cos|exp|hcos|hsin|htan|int|ln|log|odd|round|sgn|sin|sqr|sqrt|tan|trunc|area|eof|err|layer|length|chr\\$|mks\\$|exist|asc|cvs|err\\$|instr|len|val|left\\$|mid\\$|right\\$|string\\$)\\s?\\("
+	    begin: "(?i)\\b(sys\\$?|sysex\\$?|abs|acos|angle|asin|atan|cos|exp|hcos|hsin|htan|int|ln|log|odd|round|sgn|sin|sqr|sqrt|tan|trunc|area|eof|err|layer|length|chr\\$|mks\\$|exist|asc|cvs|err\\$|instr|len|val|left\\$|mid\\$|right\\$|string\\$)\\s?\\("
 			beginCaptures:
 					0:
 							name: 'support.function.BasicCAD'

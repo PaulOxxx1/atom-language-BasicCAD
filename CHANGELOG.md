@@ -1,5 +1,8 @@
 # Changelog
 
+#### 1.2.2
+ * Fixed highlighting of SYSEX$ functions
+
 #### 1.2.1
  * Correct changelog
 
