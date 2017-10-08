@@ -1,8 +1,11 @@
 # Changelog
 
+#### 1.2.3
+ * Increased tab length in snippets to standard
+
 #### 1.2.2
  * Fixed highlighting of SYSEX$ functions
-
+ 
 #### 1.2.1
  * Correct changelog
 
